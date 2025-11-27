@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A QRCode Generator">
+    <meta name="keywords" content="QR Code, Generator, HTML, CSS, JavaScript">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <title>QRCode Generator</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+        .wrapper{
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 24px 20px 32px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-sizing:border-box;
+        }
+        .title{
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .input-fow{ 
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .input-fow input{
+            flex: 1;
+            padding: 10px 12px;
+            box-sizing: border-box;
+            border: 1px solid #dcdfe6;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .btn{
+            width: 100px;
+            height: 40px;
+            margin: 0 ;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        .btn:hover{
+            background-color: #0056b3;
+        }
+        .btn:active{
+        background: #3a8ee6;  
+        }
+        .qrcode-box{
+            margin-top: 10px;
+            padding-top: 16px;
+            border-top: 1px solid #f0f0f0;
+            text-align: center;
+        }
+        .qrcode-tip{
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+        #qrcode{ 
+            display: inline-block;
+        }
+    </style>
+    <body>
+        <div class="wrapper">
+            <div class="title">QR Code Generator</div>
+            <div class="input-fow">
+                <input type="text" id="text" placeholder="请输入要生成的二维码的内容或网址URL" value="https://example.com">
+                <button class="btn" id="btn-generate">点此Generate<br> QR Code</button>
+            </div>
+            <div class="qrcode-box"> 
+                <div class="qrcode-tip">使用你的手机扫描二维码</div>
+                <div id="qrcode"></div>
+            </div>
+        </div>
+    <script>
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+        text: "",
+        width: 200,
+        height: 200,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+        });
+        var input = document.getElementById("text");
+        var btn = document.getElementById("btn-generate");
+        btn.onclick = function(){
+            var value = input.value.trim();
+            if(!value){
+                alert("请输入要生成的二维码的内容或网址URL");
+                input.focus();
+                return;
+            }
+            //先清空之前的二维码
+            qrcode.clear();
+            qrcode.makeCode(value);
+        };
+        //回车键触发生成二维码
+        input.addEventListener("keyup", function(e){
+            if(e.key === "Enter"){
+                btn.click();
+            }
+        });
+        // <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    </script>
+</body>
+</html>
