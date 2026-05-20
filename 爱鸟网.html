@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="E:\laoru\Pictures\local logo\img\lbt02.jpg" type="image/x-icon">
+    <link rel=script src="script.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/autoMatic.css">
+    <link rel="stylesheet" media="screen and (min-width: 900px)" href="widescreen.css">
+    <link rel="stylesheet" media="screen and (max-width: 600px)" href="smallscreen.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <title>爱鸟网</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+             background-color: #f4f4f4; 
+        }
+        /* 设置导航栏的样式 */
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+/* 导航栏链接样式 */
+.navbar a {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+/* 鼠标悬停时的导航栏链接样式 */
+.navbar a:hover {
+  background-color: #000;
+}
+
+/* 当前/活动的导航栏链接 */
+.active {
+  background-color: #04AA6D;
+}
+.icon-bar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+.icon-bar a {
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 36px;
+}
+.icon-bar a:hover {
+  background-color: #000;
+}
+#header {
+  padding: 0px;
+  text-align: center;
+  background: #00bfff;
+  color: white;
+  font-size: 18px; 
+  height: 200px; 
+}
+
+ .logo img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    position: absolute;
+    left: 3px;
+    top: 53px;
+}
+    h2{
+    height: 200px;
+    position: absolute;
+    left: 10px;
+    top: 1px; 
+} 
+     h3{
+     height: 50px;
+     position: absolute;
+     left: 10px;
+     top: 150px;
+    }
+    .header-nav{
+    position: absolute;
+    right: 35px;
+    top: 60px;
+    width: 90%;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 80px;
+    background-color: lightblue;
+    }
+  .topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: 1px solid #ccc;
+}
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+.topnav  input[type=text] .search-container button:hover {
+  background: #ccc;
+}
+
+  .Search-contioner{
+    position: absolute;
+    right: 10px;
+    top: 175px;
+  }
+   .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  } 
+  .main-content{
+    width: 100%;
+    height: 1200px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  p.serif {
+    font-size: 16px;
+    color: #000;
+    margin: 0px;
+  }
+/* 下一个/上一个按钮 */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color:black;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+/* 将“下一个按钮”置于右侧 */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+ /*自动轮播样式*/
+.banner-container{
+  width: 1200px;
+  height: 300px;
+            /*轮播图居中*/
+  margin: 1rem 0;
+            /*隐藏超出展示容器的内容*/
+  overflow: hidden;
+  position: relative;
+  background-color: #87c8eb;
+}
+.banner-container .banner-img-container{
+  width: 6000px;
+  height: 400px;
+  overflow: hidden;
+  position: absolute;
+            /*开启弹性盒子，使图片横向排列*/
+  display: flex;
+  animation: run 10s ease infinite;
+}
+.banner-container .banner-img-container img{
+  width: 800px; 
+  height: 80%;
+  margin: 0;
+  animation-play-state: running; /*默认动画状态为运行*/ 
+}
+/* 鼠标悬停时暂停动画 */
+.banner-container .banner-img-container img:hover{
+  animation-play-state:paused;/*悬停时动画暂停*/
+  cursor: pointer;  /*鼠标悬停时显示为指针，提示用户可以点击图片*/
+}
+.lb-carousel-dot.dark {
+  width: 44px;
+  height: 8px;
+  display: inline;  
+  border: 2px solid ;
+  border-radius: 4px;
+  border-color: #87c8eb;
+  cursor: pointer;
+}
+.button-prev{
+  width: 20px;
+  height: 20px;
+  background-color: aqua;
+  position: absolute;
+  top: 170px;
+  cursor: pointer;
+  vertical-align: middle; 
+} 
+.button-next{
+  width: 20px;
+  height: 20px;
+  background-color: aqua;
+  position: absolute;
+  top: 170px;
+  right: 280px;
+  cursor: pointer;
+  text-align: center; 
+} 
+        /*动画关键帧*/
+  @keyframes run{
+    0%,10%{
+        /*margin-left:0; */
+    transform:translatex(0);
+    }
+    20%,30%{
+        /*margin-left:-1200px; */
+    transform:translatex(-1200px);
+    }
+    40%,50%{
+        /*margin-left:-2400px;*/
+    transform:translatex(-2400px);
+    }
+    60%,70%{
+        /*margin-left:-3600px;*/
+    transform:translatex(-3600px);
+    }
+    80%,90%{
+        /*margin-left:-4800px;*/
+    transform:translatex(-4800px);
+    }
+    100%{
+        /*margin-left；0；*/
+    transform:translatex(0);
+    }
+}
+  #more{
+     display: none;   /* 阅读更多更少使用*/
+  }
+   .dropdown, .dropup {
+    position: absolute;
+    top: 600px;
+    left: 10px;
+}
+  .dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  } 
+  .dropbtn, .dropdownbtn {
+    background-color: #00bfff;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  .dropbtn:hover .dropbtn:focus, .dropdown:hover .dropbtn{
+  background-color: #3e8e41;
+}
+
+  .dropup, .dropdown{
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    position: absolute;
+  }
+  .dropup-content, .dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .dropup-content a, .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .dropup-content a:hover,  .dropdown-content a:hover{background-color: #ddd;}
+
+  .dropup:hover .dropup-content,  .dropdown:hover  .dropdown-content{display: block;} 
+
+  .dropup:hover .dropbtn, .dropdown:hover .dropdownbtn{background-color: #3e8e41;}
+  .dropdown{
+    position: absolute;
+    top: 720px;
+    left: 10px;
+  } 
+  .dropup{
+    position: absolute;
+    top: 720px;
+    left: 300px;
+
+  }
+   #dateTxt{
+    position: absolute;
+    top: 10px;
+    right: 50px; 
+
+  }
+  /* 响应式图片库样式 */
+  div.responsive {
+    border: 1px solid #ccc;
+  }
+  div.gallery:hover {
+  border: 1px solid #777;
+}
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* 合理并均匀布局各个益鸟图片 */
+div .gallery{
+  border: 1px solid #ccc;
+} 
+div .gallery:hover {
+  border: 1px solid #777;
+} 
+div .gallery img {
+  width: 100%;
+  height: auto;
+}
+div .img{
+  display: block;
+  margin: 0  auto;
+}
+div .desc {
+  padding: 15px;
+  text-align: center;
+}
+*{
+  box-sizing: border-box;
+}
+.responsive{
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+@media only screen and (max-width: 700px){
+  .responsive{
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+@media only screen and (max-width: 500px){
+  .responsive{
+    width: 100%;
+}
+}
+ .clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+} 
+ .responsive {
+  width: 400px;
+  height: 320px;
+  margin: 5px;
+  padding: 10px  20px 200px  20px;
+} 
+.bird-card{
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+.bird-img{
+  width: 280px;
+  height: auto;
+  border-radius: 18px;
+  transition: transform 0.2s
+}
+ .bird-img:hover{
+  transform: scale(1.03);/*轻微放大效果*/
+}  
+.bird-gallery{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/*以下是豆包配置*/
+.bird-gallery{
+  max-width: 1200px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.bird-card{
+  background: #f8fff5;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 1px 6px rgba(0,90,50,0,0.8)
+}
+.bird-img{
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid #d4f5d8;
+  transition: 0.2s;
+}
+.bird-img:hover{
+  transform: scale(1.05);
+  border-color: #38a169
+}
+.bird-name{
+  margin: 8px 0 4px;
+  font-weight: 600;
+  color: #2d7d32;
+  font-size: 15px;
+}
+.bird-tip{
+  font-size: 12px;
+  color: #666;
+}
+.bird-audio{
+  display: none;
+}
+@media (max-width: 768px) {
+  .bird-gallery{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .bird-gallery{
+    grid-template-columns: 1fr;
+  }
+}
+ .raptor-container{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #3e8e41;  
+}  
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.image-grid-container{
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+.image-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.image-card{
+  text-align: center;
+}
+/* 图片样式：宽度100%适应容器，高度固定，保持比例，圆角美化 */
+.image-card img {
+            /* width: 100%; */
+            width: 100%; /* 固定图片宽度 */
+            height: 180px; /* 统一图片高度 */
+            object-fit: cover; /* 保持图片比例，裁剪多余部分 */
+            border-radius: 8px; /* 圆角效果 */
+            margin-bottom: 10px; /* 图片与文字的间距 */
+        }
+         /* 文字介绍样式 */
+         .image-card p {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        /* 响应式适配：屏幕宽度小于992px时，改为2列 */
+        @media (max-width: 992px) {
+            .image-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* 响应式适配：屏幕宽度小于576px时，改为1列 */
+        @media (max-width: 576px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        } 
+.sfg {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+.go{
+  color:red;
+  border: none;
+  outline: none;
+  }
+.box{
+    position: absolute;
+    top: 530px;  
+    right: 0px;
+}
+#Audio{  
+  width: 273px; 
+  background-color: #f4f4f4; 
+}
+/* 问候语卡片样式 */
+.greeting-card {
+  background: #fff;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+}
+ /* 问候语文字样式 */
+#greeting {
+  font-weight: 600;
+  color: #333;
+  border: none;
+}
+.greeting-card{
+  position: absolute;
+  right: 5px;
+  top: 35px; 
+}
+.w3-content{
+  color: white;
+  position: absolute;
+  left: 10px;
+  top: 800px;
+  width: 100% auto;
+  background-color: red;
+} 
+label{
+  position: absolute;
+  right: 150px;
+  top: 290px;
+  font-size: 14px;
+  color: #333;
+}
+label0{
+  position: absolute;
+  right: 75px;
+  top: 410px;
+  font-size: 14px;
+  color: #333;
+}
+.user-pass-wrap label{
+  position: absolute;
+  right: 180px;
+  top: 360px;
+  font-size: 14px;
+  color: #333;
+}
+.wp-pwd{
+  position: absolute; 
+  right: 70px;
+  top: 380px;
+  text-underline-offset: 2px;
+}
+
+p input[type="submit"]{
+  position: absolute;
+  right: 150px;
+  top: 430px;
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+.input[type="text"]{
+  position: absolute;
+  right: 70px;
+  top: 310px;
+  width: 200px;
+  height: 30px;
+  padding: 5px 5px;
+  border: 1px solid #050505;
+}
+.input[type="submit"], input[type="text"] :hover{
+  background-color: #3e8e41;
+}
+ #nav {
+  position: absolute;
+  right: 115px;
+  top: 480px;
+  color: #04AA6D;
+  text-decoration: none;
+}
+ #backtoblog a{
+  position: absolute;
+  right: 100px;
+  top: 500px;
+  color: #04AA6D;
+  text-decoration: none;
+}
+label3{
+  position: absolute;
+  right: 78px;
+  top: 440px;
+}
+#rememberme {
+  position: absolute;
+  right: 123px;
+  top: 444px;
+}
+.footer {
+      background-color: rgb(0, 191, 255);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position:fixed;  
+      width: 100%;
+      height: auto; 
+      left: 0;
+      bottom: 0;
+}
+
+  </style> 
+   </head> 
+  <body>
+    <div id="header">
+        <h2>爱鸟网</h2>
+    <div class="header-nav">
+      <!-- 要更改图标，即在下面的代码中更改fa fa-fw fa-home中的home为其他名称即可，如fa fa-fw fa-user等     -->
+        <a class="active" href="#"><i class="fa fa-fw fa-home"></i>home</a>
+        <a href="https://tv.cctv.com"><i新闻 class="fa fa-fw fa-tv"></i新闻>新闻</a>
+        <a href="https://wordpress.com/reader/feeds/135943602"><imsn class="fa fa-fw fa-user"></imsn>msn</a>
+        <a href="https://china.kyodonews.net/list/news"><i class="fa fa-fw fa-envelope"></i> 共同通讯社</a>
+        <a href="https://v.qq.com/"><iqq class="fa fa-fw fa-qq"></iqq>腾讯视频</a> 
+        <a href="https://www.ibnews.com/cn/culture"><i class="fa fa-fw fa-search"></i>金融时报</a>
+        <a href="https://tv.cctv.com/live/cctv5/"><i class="fa fa-fw fa-user"></i>cctv5</a>
+        <a href="https://github.com/"><i class="fa fa-fw fa-github"></i>github</a>
+        <a href="C:\Users\laoru\OneDrive\文档\关于本网站.docx"><i class="fa fa-fw fa-wrench"></i>About</a>
+        <a href="https://weibo.com/u/1064087431"><i class="fa fa-fw fa-weibo"></i>weibo</a>
+        <a href="C:\Users\laoru\OneDrive\文档\关于本网站.docx"><i class="fa fa-fw fa-inbox"></i>mmet</a> 
+      </div>
+   <h3>爱鸟、护鸟是人类的天职。</h3>
+   </div> 
+   <div class="logo img">
+    <img src="https://img.tukuppt.com/ad_preview/00/43/97/SMxABJzd6Z.jpg!/fw/260" alt="Pictures">
+   </div>
+    </div> 
+    <div class="Search-contioner">
+     <form action="/action_page.php"> 
+      <input type="text" placeholder="Search..." name="search"> 
+      <button type="submit"><i class="fa fa-fw fa-search"></i></button>
+    </form>
+  </div>
+</div>
+ </div>
+<div class="content">
+    《鸟儿赋》
+    <p class="test">
+       夫自然之灵，羽族为奇。栖天地以振翮，贯古今而长啼。朝饮苍浪之露，暮宿扶桑之枝。其形也，或披霓霞，或缀星辉，玄裳素衿，朱喙翠眉。
+    振羽时散落九霄云宵，停翼处浮起一脉春漪。<span id="dots">...</span><span id="more">若夫雨霁新阳，林开画障。黄莺试舌于青杪，白鹭提足于芦荡。燕尾剪梨烟而斜，雀翎扑松浪而响。忽闻云外清啸裂空，原是孤鸿独往。驮残
+    阳如披火氅，越关山不坠初想。此皆造化笔端墨,写尽翮下三千象。
+       至若托身人世，意态犹殊：堂前旧燕犹识故主，雪中寒雀偏叩贫庐。精卫衔微木而志填沧海，杜鹃啼赤血而魂寄巴蜀。更有青鸟使者，殷勤探
+    看，西窗烛影里，频递云外书。嗟乎！此身虽微，其情何笃？
+       观夫蓬间决起，不过榆枋之间；垂天之翼，竟图南冥之迁。高低皆成风景，大小各有洞天。岂因金笼玉食弃青云？终向野水空山觅自然。忽悟
+    庄生濠上语：天地本为共适之乡，风月原是未锁之园。
+    自曰：
+    玄裳翩兮御八风，遊四海兮栖梧桐。啄饮但随造化，俯仰岂拘樊笼？清啼唤醒桃李，纤羽拂淡秋冬。愿效青禽借瀛洲笔，遍写人间自在踪！<br>
+    </span></p>   
+    <button onclick="myFunction()" id="myBtn">阅读更多</button>
+</div>
+<!-- 音频 -->
+<div class ="box">
+  <!-- <audio id ="Audio" src="C:\Users\laoru\Downloads\VSCode-win32-x64-1.103.0-insider\鸟_耳聆网_[声音ID：44032].mp3" controls autoplay loop></audio>  -->
+  <audio id ="Audio" src="C:\Users\laoru\Downloads\VSCode-win32-x64-1.103.0-insider\cuckoo-in-the-forest-water-murmurs-in-the-background.mp3"controls autoplay loop></audio>
+</div>
+<div class="greeting-card">
+  <span id="greeting"></span>
+  </div>
+  <script> 
+    function myFunction() {
+       var dots = document.getElementById("dots");
+       var moreText = document.getElementById("more");
+       var btnText = document.getElementById("myBtn");
+
+    if (dots.style.display === "none") {
+      dots.style.display = "inline";
+      btnText.innerHTML = "阅读更多"; 
+      moreText.style.display = "none";
+    } else {
+      dots.style.display = "none";
+      btnText.innerHTML = "阅读更少"; 
+      moreText.style.display = "inline";
+  }
+}
+</script> 
+    <div class="main-content"> 
+    <!-- 创建外部展示容器 -->
+    <div class="banner-container">
+    <!-- 创建图片展示容器 -->
+    <div class="banner-img-container">
+      <img src="https://static.699pic.com/images/diversion/dec9375410b560c455176f56dbe31b56.jpg" alt="Pictures">
+      <img src="https://tse1-mm.cn.bing.net/th/id/OIP-C.-uPHpqsLWIvjU_Ar1ieBygAAAA?w=274&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Pictures">
+      <img src="https://tse3-mm.cn.bing.net/th/id/OIP-C.vTTcT3KH_UMIHxZKRBVeFwAAAA?w=270&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Pictures">
+      <img src="https://tse2-mm.cn.bing.net/th/id/OIP-C.oYecagl7hILQzMV12BXaZQAAAA?w=225&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Pictures"> 
+      <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1Uq3OM.img?w=768&h=529&m=6" alt="Pictures">
+      <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1UqbuL.img?w=768&h=566&m=6" alt="Pictures">
+      <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1UqbuX.img?w=768&h=514&m=6" alt="Pictures">
+      <img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.9lEcytLw0PilXamgLfqDLgHaEJ?w=286&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Pictures">
+      <img src="https://img95.699pic.com/photo/60074/4833.jpg_wh860.jpg" alt="Pictures">
+      <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1ItOKj.img?w=720&h=540&m=6" alt="Pictures">
+      <img src="https://www.billhubick.com/images/american_goldfinch_060720_cromwell.jpg" alt="Pictures">
+      <img src="https://static.699pic.com/images/diversion/dec9375410b560c455176f56dbe31b56.jpg" alt="Pictures">
+     
+</div>  
+  </div>
+    </div>
+  <!-- 缩小放大关闭 -->
+  <div class="sfg">
+    <button onclick = "document.body.style.zoom='80%'">-</button>
+    <button onclick = "document.body.style.zoom='120%'">+</button>
+    <button onclick = "window.close()" class="go">x</button>
+  </div>
+</div>
+  </div>
+  </div>
+</div>
+</div>
+   <!-- 下拉菜单视频-->
+   <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">视频</button>
+    <div id="myDropdown" class="dropdown-content">
+    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+    <a href="#"slides src="img_la.jpg" width="100%"></a>About</a>
+    <a href="#base">Base</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+    <a href="#custom">Custom</a>
+    <a href="#support">Support</a>
+    <a href="#tools">Tools</a>
+  </div>
+</div> 
+    <div class="dropup">
+    <a class="dropbtn" href="https://wx1.sinaimg.cn/orj480/3f6caf87ly1i0zra0734jj20u01hc789.jpg" target="_blank">video</a>
+    <div class="dropup-content">
+        <a href="#">缅怀父母</a>
+        <a href="E:\laoru\Pictures\lv_0_20240520220416.mp4" target="_blank">1</a>
+        <a href="https://wx1.sinaimg.cn/orj480/3f6caf87ly1i0zra0734jj20u01hc789.jpg" target="_blank">2</a>
+        <a href="https://wx2.sinaimg.cn/orj480/3f6caf87ly1i1bofnj8g0j21hc0u0wfv.jpg" target="_blank">3</a>
+        <a href="https://weibo.com/u/1064087431?tabtype=newVideo" target="_blank">4</a>
+      </div>
+    </div>
+  </div>
+
+<!-- 日期与时间：-->
+<div id="dateTxt"></div>
+<div class="greeting-card">
+  <span id="greeting">
+  </span>
+  </div>
+  <label for="user_login">用户名或邮箱地址:</label>
+   <div class="login"> 
+    <form action="https://learn.wordpress.org" method="post"> 
+     <form action="185.93.1.246" method="post">
+    <!-- <input type="text" name="Username" value="" placeholder="请输入.../"> 
+     <input type="password" name="password" value=""> 
+     <input type="submit" name="" value="确定">  -->
+   <p> 
+    <input type="text" name="log" id="user_login" aria-describedby="login_error" class="input" value="" size="20" autocapitalize="off" autocomplete="username" required="required"> 
+   </p> 
+  <div class="user-pass-wrap">
+    <label for="user_pass">密码:</label>
+    <div class="wp-pwd">
+    <input type="password" name="pwd" id="user_pass" aria-describedby="login_error" class="input password-input" value="" size="20" autocomplete="current-password" spellcheck="false" required="required">
+    <button type="button" class="button button-secondary wp-hide-pw hide-if-no-js" data-toggle="0" aria-label="显示密码">
+    <span class="dashicons dashicons-visibility" aria-hidden="true">
+      </span>
+    </button>
+  </div>
+</div>
+    <p class="forgetmenot">
+        <input name="rememberme" type="checkbox" id="rememberme" value="forever" checked="checked">
+        </input> 
+    <label3 for="rememberme">记住我</label3>
+</p>
+    <p class="submit">
+    <input type="submit" name="wp-submit"id="wp-submit"class="button button-primary button-large" value="登 录">
+    <input type="hidden" name="redirect_to" value="https://cn.wordpress.org/themes/browse/favorites/">
+    <input type="submit" name="" value="登 录">
+</p>
+</form>
+<p id="nav">
+ <a class="wp-login-register" href="https://login.wordpress.org/register">创建帐户</a>
+    <a class="wp-login-lost-password" href="https://login.wordpress.org/lostpassword">忘记密码？</a> 
+</p>
+<p id="backtoblog">
+<!-- <a href="https://login.wordpress.org/">←返回到  WordPress.org Login</a>  -->
+ <a href="E/myxuex.html">←返回到E/myxuex.html</a>   
+</p>
+</div>
+</div>
+<script>
+    const date = new Date();
+    const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+    document.getElementById('dateTxt').innerHTML = date.toLocaleDateString('zh-CN', options);
+    setInterval(() => {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('zh-CN', { hour12: false });
+        document.getElementById('dateTxt').innerHTML = date.toLocaleDateString('zh-CN', options) + ' ' + timeString;
+    }, 1000);
+// 初始化时间显示
+     if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateTime);
+     }
+      else {
+          updateTime();
+      }
+</script>
+</div>
+<script>
+// 时间判断功能 - 完善了时间划分并增加页面显示
+(function showGreeting() {
+    const currentDate = new Date();
+    const hour = currentDate.getHours();
+    let greeting;
+    
+    // 更细致的时间段划分
+    if (hour < 6) {
+        greeting = '凌晨好';
+    } else if (hour < 9) {
+        greeting = '早上好';
+    } else if (hour < 12) {
+        greeting = '上午好';
+    } else if (hour < 14) {
+        greeting = '中午好';
+    } else if (hour < 18) {
+        greeting = '下午好';
+    } else if (hour < 22) {
+        greeting = '晚上好';
+    } else {
+        greeting = '夜深了，注意休息';
+    }
+    
+    console.log(greeting);
+    
+    // 在页面上显示问候语（假设存在id为greeting的元素）
+    const greetingElement = document.getElementById('greeting');
+    if (greetingElement) {
+        greetingElement.textContent = greeting;
+    }
+})();  // 使用立即执行函数，避免全局变量污染   
+</script>
+<script>
+function myFunction() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById("myBar").style.width = scrolled + "%";
+}
+function filterFunction() {
+  const input = document.getElementById("myInput");
+  const filter = input.value.toUpperCase();
+  const div = document.getElementById("myDropdown");
+  const a = div.getElementsByTagName("a");
+  for (let i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    const dropdowns = document.getElementsByClassName("dropdown-content");
+    for (let i = 0; i < dropdowns.length; i++) {
+      const openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+<script>
+  function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "阅读更多"; 
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "阅读更少"; 
+    moreText.style.display = "inline";
+  }
+}
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+}
+    function updateTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('zh-CN', { hour12: false });
+        document.getElementById('dateTxt').innerHTML = timeString;
+    }
+    setInterval(updateTime, 1000);
+  </script> 
+</script>
+</div>
+  </div>
+  <!--鸟儿模块：替换src为你的图片+鸟鸣音频-->
+  <p>猛禽类</p>
+  <div class="image-grid-container">
+    <div class="image-grid">
+      <!-- 第1张图片 -->
+    <div class="image-card">
+      <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1XesfD.img?w=640&h=437&m=6" alt="角雕">
+      <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1XesfD.img?w=640&h=437&m=6"  alt="角雕"></a>
+      <p>角雕:世界上体型最大的鹰,体长约1米,翼展约两米</p>
+    </div>
+    <!-- 第2张图片 -->
+    <div class="image-card">
+      <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1XefWt.img?w=640&h=410&m=6" alt="食猿雕">
+      <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1XefWt.img?w=640&h=410&m=6"  alt="食猿雕"></a>
+      <p>食猿雕:菲律宾国鸟,顶着一头"爆炸发型",霸气外露｡</p>
+    </div>
+    <!-- 第3张图片 -->
+     <div class="image-card">
+      <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1Xe40g.img?w=640&h=416&m=6" alt="非洲冕雕">
+      <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1Xe40g.img?w=640&h=416&m=6" alt="非洲冕雕"></a>
+      <p>非洲冕雕:头顶一簇黑色羽毛像王冠,高空盘旋侦查,锁定目标直接俯冲｡ 狒狒、羚羊？都在它的菜单上,来者不拒｡</p>
+    </div>
+    <!-- 第4张图片 -->
+     <div class="image-card">
+      <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1XefWp.img?w=640&h=403&m=6" alt="肉垂秃鹫">
+      <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1XefWp.img?w=640&h=403&m=6"  alt="肉垂秃鹫"></a>
+      <p>肉垂秃鹫:长得是真吓人,头颈光秃秃的,血红色的皮肤往外翻喙能直接撕开猎物的皮和肌腱,所有秃鹫里,独一份</p>
+    </div>
+    <!-- 第5张图片 -->
+     <div class="image-card">
+      <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/ODL.b824cb9364eca048a8bdca08214c63fa?w=310&h=198&c=7&rs=1&bgcl=fffffe&r=0&o=6&dpr=1.3&pid=AlgoBlockDebug" alt="白头秃鹫">
+      <img src="https://ts1.tc.mm.bing.net/th/id/ODL.b824cb9364eca048a8bdca08214c63fa?w=310&h=198&c=7&rs=1&bgcl=fffffe&r=0&o=6&dpr=1.3&pid=AlgoBlockDebug"  alt="白头秃鹫"></a>
+      <p>白头秃鹫:头部和颈部的羽毛稀疏,露出粉红色的皮肤,是非洲最大的食腐鸟,也是世界上飞得最高的鸟之一｡</p>
+    </div>
+    <!-- 第6张图片 -->
+    <div class="image-card">
+      <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.pbbyC6GmbHecfAcLYJyyKgHaHa?w=266&h=200&c=8&rs=1&o=6&dpr=1.3&pid=3.1&rm=2" alt="加拉帕戈斯秃鹫">
+      <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.pbbyC6GmbHecfAcLYJyyKgHaHa?w=266&h=200&c=8&rs=1&o=6&dpr=1.3&pid=3.1&rm=2" alt="加拉帕戈斯秃鹫"></a>
+      <p>加拉帕戈斯秃鹫:加拉帕戈斯群岛的特有种,是世界上最稀有的秃鹫,也是飞得最高的鸟之一｡</p>
+  </div>
+      <!-- 第7张图片 -->
+    <div class="image-card">
+      <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1Xel31.img?w=640&h=399&m=6" alt="虎头海雕">
+      <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1Xel31.img?w=640&h=399&m=6" alt="虎头海雕"></a>
+      <p>虎头海雕：身上灰褐色斑纹像老虎,住在海湾边,主要吃鱼｡ </p>
+    </div>
+      <!-- 第8张图片 -->
+     <div class="image-card">
+      <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1Xel3e.img?w=640&h=413&m=6" alt="金雕">
+      <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1Xel3e.img?w=640&h=413&m=6" alt="金雕"></a>
+      <p>金雕:低调沉默,但出手就没有空手回来的时候｡</p>
+    </div>
+      <!-- 第9张图片 -->
+     <div class="image-card">
+      <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1Xedz6.img?w=640&h=397&m=6" alt="游隼">
+      <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1Xedz6.img?w=640&h=397&m=6" alt="游隼"></a>
+      <p>游隼:体长38-50厘米,中型个头,但脾气比谁都大｡</p>
+    </div>
+      <!-- 第10张图片 -->
+     <div class="image-card">
+      <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1Xe6ku.img?w=640&h=411&m=6" alt="白头海雕">
+      <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1Xe6ku.img?w=640&h=411&m=6" alt="白头海雕"></a>
+      <p>白头海雕:美国国鸟,白头黑衣黄喙,辨识度拉满。飞行时速48公里。</p>
+    </div>
+      <!-- 第11张图片 -->
+     <div class="image-card">
+      <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1Xe40c.img?w=640&h=407&m=6" alt="雪鸮">
+      <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1Xe40c.img?w=640&h=407&m=6"alt="雪鸮"></a>
+      <p>雪鸮:全身雪白,头顶两只小耳朵,是北极圈的常住居民｡</p>
+    </div>
+      <!-- 第12张图片 -->
+      <div class="image-card">
+        <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1Xe40a.img?w=640&h=386&m=6" alt="安第斯神鹰">
+        <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1Xe40a.img?w=640&h=386&m=6" alt="安第斯神鹰"></a>
+        <p>安第斯神鹰:翅展3.2米。体重11公斤。南美洲最大的鸟,还是世界上飞得最高的｡</p>
+      </div>
+  </div>
+ </div>
+     <p>益鸟类</p>
+  <div class="image-grid-container">
+    <div class="image-grid"> 
+      <!-- 第1张图片 -->
+    <div class="image-card">
+      <a target="_blank" href="https://n.sinaimg.cn/front/320/w640h480/20190329/iTXD-huxwryv8077879.jpg" alt="啄木鸟">
+      <img src="https://n.sinaimg.cn/front/320/w640h480/20190329/iTXD-huxwryv8077879.jpg" alt="啄木鸟"></a>
+      <p>啄木鸟:啄木鸟是森林的医生，能吃掉树皮下的害虫，保护树木健康。</p> 
+    </div>
+      <!-- 第2张图片 -->
+    <div class="image-card">
+      <a target="_blank" href="https://img.pconline.com.cn/images/upload/upc/tx/photoblog/1009/18/c2/5238436_5238436_1284792765562.jpg" alt="戴胜">
+      <img src="https://img.pconline.com.cn/images/upload/upc/tx/photoblog/1009/18/c2/5238436_5238436_1284792765562.jpg" alt="戴胜"></a>
+      <p>戴胜:头顶羽冠，捕食土壤害虫，保护农作物。</p>
+    </div>
+      <!-- 第3张图片 -->
+     <div class="image-card">
+      <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.1GjzSnOpCRyDqKAJQHDbhQHaJZ?w=110&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="灰喜鹊">
+      <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.1GjzSnOpCRyDqKAJQHDbhQHaJZ?w=110&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="灰喜鹊"></a>
+      <p>灰喜鹊:群居性，专食松毛虫等林业害虫，保护森林生态。</p>
+    </div>
+      <!-- 第4张图片 -->
+     <div class="image-card">
+      <a target="_blank" href="https://ts2.tc.mm.bing.net/th/id/OIP-C.j_Fw3LBNk73LJPUkSbfiswHaFj?w=128&h=108&c=7&qlt=90&bgcl=bafd56&r=0&o=6&dpr=1.3&pid=13.1" alt="家燕">
+      <img src="https://ts2.tc.mm.bing.net/th/id/OIP-C.j_Fw3LBNk73LJPUkSbfiswHaFj?w=128&h=108&c=7&qlt=90&bgcl=bafd56&r=0&o=6&dpr=1.3&pid=13.1" alt="家燕"></a>
+      <p>家燕:捕食飞行害虫，减少病媒传播，保护人类健康。</p>
+    </div>
+      <!-- 第5张图片 -->
+     <div class="image-card">
+      <!-- <a target="_blank" href="https://static.699pic.com/images/diversion/dec9375410b560c455176f56dbe31b56.jpg" alt="麻雀"> -->
+      <!-- <img src="https://static.699pic.com/images/diversion/dec9375410b560c455176f56dbe31b56.jpg" alt="麻雀"></a> -->
+      <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1WeCdr.img?w=754&h=394&m=6" alt="麻雀">
+      <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1WeCdr.img?w=754&h=394&m=6" alt="麻雀"></a>
+      <p>麻雀:适应力强，食性杂乱，繁殖力极强，能有效控制害虫数量。</p>
+    </div>
+    <!-- 第6张图片 -->
+     <div class="image-card">
+      <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.7nlbydH5bKpAW8vsB3WKMgHaEn?w=169&h=108&c=7&qlt=90&bgcl=55872e&r=0&o=6&dpr=1.3&pid=13.1" alt="乌鸫">
+      <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.7nlbydH5bKpAW8vsB3WKMgHaEn?w=169&h=108&c=7&qlt=90&bgcl=55872e&r=0&o=6&dpr=1.3&pid=13.1" alt="乌鸫"></a>
+      <p>乌鸫：是杂食性鸟类，食物包括昆虫、蚯蚓、种子和浆果。</p>
+    </div>
+      <!-- 第7张图片 -->
+      <div class="image-card">
+        <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1BBjkm.img?w=768&h=558&m=6" alt="蜂鸟">
+        <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1BBjkm.img?w=768&h=558&m=6" alt="蜂鸟"></a>
+        <p>蜂鸟：迷你吸蜜，助力花卉授粉。</p>
+      </div>
+      <!-- 第8张图片 -->
+      <div class="image-card">
+        <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.9h5i_d7iMpwmxg5D8XDkzAHaE0?w=210&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="白鹭">
+        <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.9h5i_d7iMpwmxg5D8XDkzAHaE0?w=210&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="白鹭"></a>
+        <p>白鹭：白色水鸟，水质监测指示物种。</p>
+      </div>
+      <!-- 第9张图片 -->
+      <div class="image-card">
+        <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.s-y14MtgDpqrY6yZNHWS2AHaEc?w=195&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="苍鹭">
+        <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.s-y14MtgDpqrY6yZNHWS2AHaEc?w=195&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="苍鹭"></a>
+        <p>苍鹭：大型涉禽，捕食水生害虫。</p>
+      </div>
+      <!-- 第10张图片 -->
+      <div class="image-card">
+        <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.6vBma2SkPZlf_vTffu6-fQHaE1?w=247&h=200&c=8&rs=1&o=6&dpr=1.3&pid=3.1&rm=2" alt="秃鹫">
+        <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.6vBma2SkPZlf_vTffu6-fQHaE1?w=247&h=200&c=8&rs=1&o=6&dpr=1.3&pid=3.1&rm=2" alt="秃鹫"></a>
+        <p>秃鹫：食腐清道夫，净化自然环境。</p>
+      </div>
+      <!-- 第11张图片 -->
+      <div class="image-card">
+        <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.9lEcytLw0PilXamgLfqDLgHaEJ?w=286&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="鸽子">
+        <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.9lEcytLw0PilXamgLfqDLgHaEJ?w=286&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="鸽子"></a>
+        <p>鸽子：城市常见，食物多样，适应力强。</p>
+      </div>
+      <!-- 第12张图片 -->
+        <div class="image-card">
+          <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.OMtEGVIYMno_4a4eSe4IvAHaFj?w=185&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="喜鹊">
+          <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.OMtEGVIYMno_4a4eSe4IvAHaFj?w=185&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="喜鹊"></a>
+          <p>喜鹊：吉祥象征，捕食害虫兼食杂果。</p>
+        </div>
+        <!-- 第13张图片 -->
+        <div class="image-card">
+          <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.hZoLlaY0pU74v7-vgdNOWAHaFj?w=128&h=108&c=7&qlt=90&bgcl=b7d218&r=0&o=6&dpr=1.3&pid=13.1" alt="信鸽">
+            <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.hZoLlaY0pU74v7-vgdNOWAHaFj?w=128&h=108&c=7&qlt=90&bgcl=b7d218&r=0&o=6&dpr=1.3&pid=13.1" alt="信鸽" ></a>
+            <p>信鸽：和平象征，兼具通讯价值。</p>
+        </div>
+        <!-- 第14张图片 -->
+          <div class="image-card">
+            <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.YegVHsiVWw7bkEOb1AcoSQHaFj?w=165&h=128&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="画眉鸟">
+              <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.YegVHsiVWw7bkEOb1AcoSQHaFj?w=165&h=128&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="画眉鸟"></a>
+              <p>画眉鸟：鸣声悦耳，捕食害虫益鸟。</p>
+          </div>
+          <!-- 第15张图片 -->
+           <div class="image-card">
+              <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/ODL.a0b404c43af2a1f1a31aa9fad3a90df8?w=310&h=198&c=7&rs=1&bgcl=fffffe&r=0&o=6&dpr=1.3&pid=AlgoBlockDebug" alt="大雁">
+              <img src="https://ts1.tc.mm.bing.net/th/id/ODL.a0b404c43af2a1f1a31aa9fad3a90df8?w=310&h=198&c=7&rs=1&bgcl=fffffe&r=0&o=6&dpr=1.3&pid=AlgoBlockDebug" alt="大雁"></a>
+              <p>大雁:大型候鸟,群居于水边。群居迁徙，象征团结，捕食田间害虫</p>
+          </div>
+          <!-- 第16张图片 -->
+           <div class="image-card">
+              <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.cp7XEbj7KxxHDHliZsceAAAAAA?w=221&h=200&c=8&rs=1&o=6&dpr=1.3&pid=3.1&rm=2" alt="大山雀">
+              <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.cp7XEbj7KxxHDHliZsceAAAAAA?w=221&h=200&c=8&rs=1&o=6&dpr=1.3&pid=3.1&rm=2" alt="大山雀"></a>
+              <p>大山雀：主要以松毛虫、刺蛾、金龟甲、瓢甲、蝽象等各种昆虫为食。</p>
+          </div>
+    </div>
+  </div>
+</div>
+  <p>最长寿的禽类</p>
+  <div class="image-grid-container">
+    <div class="image-grid">
+          <!-- 第17张图片 -->
+          <div class="image-card">
+            <a target="_blank" href="http://img1.bala.cc/allimg/2109/10362B405-0.jpg" alt="葵花凤头鹦鹉">
+              <img src="http://img1.bala.cc/allimg/2109/10362B405-0.jpg" alt="葵花凤头鹦鹉"></a>
+            <p>葵花凤头鹦鹉:是世界上最长寿的鸟。其寿命可达80余年。</p>
+          </div>
+          <!-- 第18张图片 -->
+          <div class="image-card">
+            <a target="_blank" href="http://img1.bala.cc/allimg/2109/10362A0D-1.jpg" alt="金刚鹦鹉">
+              <img src="http://img1.bala.cc/allimg/2109/10362A0D-1.jpg" alt="金刚鹦鹉"></a>
+            <p>金刚鹦鹉:是世界上最长寿的鸟。其寿命可达65年。</p>
+          </div>
+          <!-- 第19张图片 -->
+          <div class="image-card">
+            <a target="_blank" href="http://img1.bala.cc/allimg/2109/10362A316-2.jpg" alt="皇信天翁">
+              <img src="http://img1.bala.cc/allimg/2109/10362A316-2.jpg" alt="皇信天翁"></a>
+            <p>皇信天翁:是世界上最长寿的鸟。其寿命达60余年。主要分布在澳大利亚和新西兰。</p>
+          </div>
+            <!-- 第20张图片 -->
+            <div class="image-card">
+              <a target="_blank" href="http://img1.bala.cc/allimg/2109/10362612D-3.jpg" alt="非洲灰鹦鹉">
+                  <img src="http://img1.bala.cc/allimg/2109/10362612D-3.jpg" alt="非洲灰鹦鹉"></a>
+                  <p>非洲灰鹦鹉:喜攀爬,不善飞翔,经过训练后可与人类交谈,它们的平均寿命可达55岁。</p>
+              </div>
+              <!-- 第20张图片 -->
+              <div class="image-card">
+                <a target="_blank" href="http://img1.bala.cc/allimg/2109/1036261945-4.jpg"alt="安第斯神鹫">
+                    <img src="http://img1.bala.cc/allimg/2109/1036261945-4.jpg" alt="安第斯神鹫"></a>
+                    <p>安第斯神鹫:是世界上最大的飞禽,是玻利维亚、智利、哥伦比亚和厄瓜多尔等国的国鸟平均寿命可达50岁。</p>
+                </div>
+                <!-- 第21张图片 -->
+                <div class="image-card">
+                <a target="_blank" href="http://img1.bala.cc/allimg/2109/1036263957-5.jpg" alt="丹顶鹤"></a>
+                    <img src="http://img1.bala.cc/allimg/2109/1036263957-5.jpg" alt="丹顶鹤">
+                    <p>丹顶鹤:在我国东北地区、俄罗斯、日本、韩国等地都有分布,它们的寿命可达50-60年。</p>
+                </div>
+              <!-- 第22张图片 -->
+                 <div class="image-card">
+                <a target="_blank" href="http://img1.bala.cc/allimg/2109/1036263U1-6.jpg" alt="蓝眼巴丹鹦鹉">
+                      <img src="http://img1.bala.cc/allimg/2109/1036263U1-6.jpg" alt="蓝眼巴丹鹦鹉"></a>
+                      <p>蓝眼巴丹鹦鹉:是一种非常漂亮的鸟类,它们的羽毛为蓝色,有一些黄色的点,它们的平均寿命在20-30年左右。</p>
+                  </div>
+                    <!-- 第23张图片 -->
+                  <div class="image-card">
+                    <a target="_blank" href="http://img1.bala.cc/allimg/2109/1036264034-7.jpg" alt="火烈鸟">
+                      <img src="http://img1.bala.cc/allimg/2109/1036264034-7.jpg" alt="火烈鸟"></a>
+                      <p>火烈鸟:火烈鸟也叫红鹳，它们有着鲜艳的红色羽毛，细长的腿和修长的脖颈,被人饲为观赏鸟,它们的寿命大约为20-50年。</p>
+                    </div>
+                      <!-- 第24张图片 -->
+                      <div class="image-card">
+                        <a target="_blank" href="http://img1.bala.cc/allimg/2109/1036262041-8.jpg" alt="马来犀鸟">
+                          <img src="http://img1.bala.cc/allimg/2109/1036262041-8.jpg" alt="马来犀鸟"></a>
+                          <p>马来犀鸟:马来犀鸟是马来西亚的国鸟,它们的体长可达1米,羽毛多为黑色,鸟喙为橙色,它们在野外的寿命可达35岁。</p>
+                      </div>
+                      <!-- 第25张图片 -->
+                          <div class="image-card">
+                            <a target="_blank" href="http://img1.bala.cc/allimg/2109/1036262138-9.jpg" alt="吸蜜鹦鹉">
+                              <img src="http://img1.bala.cc/allimg/2109/1036262138-9.jpg" alt="吸蜜鹦鹉"></a>
+                              <p>吸蜜鹦鹉:是世界上最长寿的鸟,主要分布在澳大利亚,它们的羽毛色彩鲜艳,有着较长的鸟喙和细长的舌头,方便它们在花朵中吸取花粉和花蜜。它们的平均寿命在23年左右。</p>
+                      </div> 
+        </div>
+      <div>
+  </div>
+  </div>
+  <p>宠物鸟</p>
+  <div class="image-grid-container">
+    <div class="image-grid">
+        <!-- 第26张图片 -->
+        <div class="image-card">
+        <a target="_blank"  href="https://img-s.msn.cn/tenant/amp/entityid/AA1X2b04.img?w=640&h=395&m=6" alt="玄凤鹦鹉">
+        <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1X2b04.img?w=640&h=395&m=6" alt="玄凤鹦鹉"></a>
+        <p>玄凤鹦鹉:是宠物鸟中最受喜爱的鸟,原产于澳大利亚,羽色漂亮,寿命可达20年。</p>
+      </div>
+        <!-- 第27张图片 -->
+        <div class="image-card">
+        <a target="_parent" href="https://img-s.msn.cn/tenant/amp/entityid/AA1X2sco.img?w=640&h=395&m=6" alt="虎皮鹦鹉">
+        <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1X2sco.img?w=640&h=395&m=6" alt="虎皮鹦鹉"></a>
+        <p>虎皮鹦鹉:是一种体型较小的鹦鹉,体态优美,易于驯养,产于澳大利亚。寿命可达10~15年。</p>
+      </div>
+        <!-- 第28张图片 -->
+        <div class="image-card">
+          <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1X2g9M.img?w=640&h=395&m=6" alt="凤头鹦鹉">
+            <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1X2g9M.img?w=640&h=395&m=6" alt="凤头鹦鹉"></a>
+            <p>凤头鹦鹉：以高智商、顽皮个性而闻名。它非常爱玩,平均寿命为30至70年（因物种而异）。</p>
+        </div>
+          <!-- 第29张图片 -->
+          <div class="image-card">
+            <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1X26aQ.img?w=640&h=395&m=6" alt="风信子金刚鹦鹉">
+              <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1X26aQ.img?w=640&h=395&m=6" alt="风信子金刚鹦鹉"></a>
+              <p>风信子金刚鹦鹉:原产于南美洲中、东部，容易接受训练，是一种非常有价值的宠物鸟。</p>
+              </div>
+            <!-- 第30张图片 -->
+          <div class="image-card">
+            <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1X2pT7.img?w=640&h=395&m=6" alt="爱情鸟">
+              <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1X2pT7.img?w=640&h=395&m=6" alt="爱情鸟"></a>
+              <p>爱情鸟:很聪明,通过适当的训练能学会玩一些小游戏和模仿人声,个别的可以学人说话。可以活大约20至30年。</p>
+          </div>
+            <!-- 第31张图片 -->
+            <div class="image-card">
+              <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1X2dIF.img?w=640&h=395&m=6" alt="折衷鹦鹉">
+                <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1X2dIF.img?w=640&h=395&m=6" alt="折衷鹦鹉"></a>
+                <p>折衷鹦鹉:原产于所罗门群岛的热带雨林。美丽的外表，学说话能力强和安静的个性让它广受欢迎。雄鸟是亮眼的绿色，鲜红色的是雌鸟，</p>
+            </div>
+              <!-- 第32张图片 -->
+              <div class="image-card">
+                <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1X2pTb.img?w=640&h=395&m=6" alt="绿颊锥尾鹦鹉">
+                <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1X2pTb.img?w=640&h=395&m=6" alt="绿颊锥尾鹦鹉"></a>
+                <p>绿颊锥尾鹦鹉:是一种体型较小的鹦鹉,体态优美,易于驯养。个性较随和,在适合的圈养条件下可活30年。</p>
+                </div>
+                <!-- 第33张图片 -->
+                <div class="image-card">    
+              <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1X2dIJ.img?w=640&h=395&m=6" alt="金丝雀">
+             <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1X2dIJ.img?w=640&h=395&m=6" alt="金丝雀"></a>
+             <p>金丝雀:虽然不会学人说话,但个性开朗、叫声十分悦耳,尤其雄鸟。平均寿命在5至10年。</p>
+            </div>
+            <!-- 第34张图片 -->
+            <div class="image-card">
+              <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1X2kM4.img?w=640&h=395&m=6" alt="红肩金刚鹦鹉">
+                  <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1X2kM4.img?w=640&h=395&m=6" alt="红肩金刚鹦鹉"></a>
+                  <p>红肩金刚鹦鹉:个性随和且聪明，对训练反应迅速，有很好的社交能力，可以与主人建立情感。</p>
+            </div>
+            <!-- 第34张图片 -->
+        <div class="image-card">
+          <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1X2ga6.img?w=640&h=381&m=6" alt="斑胸草雀">
+          <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1X2ga6.img?w=640&h=381&m=6" alt="斑胸草雀"></a>
+          <p>斑胸草雀:它是一种性情活跃的鸟儿,容易照料。成对饲养,鸟儿可以自己玩耍,不需要主人的太多关注。遗憾的是,这种鸟儿的通常寿命只有3至5年。</p>
+      </div>
+        <div class="image-card">
+          <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1R1QFt.img?w=768&h=492&m=6" alt="白领凤鹛">
+            <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1R1QFt.img?w=768&h=492&m=6" alt="白领凤鹛"></a>
+            <p>白领凤鹛：雀形目、画眉科、凤鹛属鸟类，属小型鸟类。在国内分布于甘肃、陕西、湖北、四川、贵州、云南等省份。</p>
+          </div>
+          <div class="image-card">
+          <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1QNLmQ.img?w=768&h=512&m=6" alt="杂色山雀">
+            <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1QNLmQ.img?w=768&h=512&m=6" alt="杂色山雀"></a>
+             <p>杂色山雀:杂食性鸟类，其中主要以小囊虫、卷叶蛾、螟蛾等昆虫以及昆虫幼虫为食，但也会进食植物果实和种子。</p>
+          </div>
+      </div>
+  </div>
+  </div>
+  <!-- <div class="image-grid-container">
+    <div class="image-grid">--> 
+   <div class="responsive">
+      <div class="gallery"> 
+         <!-- <div class="bird-card">  -->
+          <div class="image-card">  
+          <div class="bird-name">啄木鸟</div>
+          <div class="bird-tip">点击图片播放啄木鸟叫声</div>
+          <div class="bird-audio" preload="auto">
+          <source src="c:\Users\laoru\Downloads\VSCode-win32-x64-1.103.0-insider\various-woodpecker-singing-on-the-background-of-nature.mp3" type="audio/mpeg"></source></div>
+          <a target="_blank" href="https://n.sinaimg.cn/front/320/w640h480/20190329/iTXD-huxwryv8077879.jpg">
+          <img src="https://n.sinaimg.cn/front/320/w640h480/20190329/iTXD-huxwryv8077879.jpg"class="bird-img"
+          onclick="playBirdSound(this)" alt="啄木鸟"></img></a> 
+        <!--隐藏音频标签-->
+         <audio preload="auto" class="bird-audio"src="https://sounddino.com/cmn/effects/woodpeckers/">
+        <div class="desc">啄木鸟：森林医生，啄食树干害虫。>
+        </div>
+        </div>
+ <!-- </div>  -->
+<script>
+  function playBirdSound(imgEl) {
+    // 找到当前图片对应的音频
+    const audio = imgEl.nextElementSibling.nextElementSibling; 
+    // 重复点击时从播放
+      audio.currentTime = 0;
+      audio.play().catch(err =>
+    console.log("播放失败：",err)); 
+    }
+</script>
+<div class="responsive">
+       <div class="gallery">  
+       <div class="image-card">
+       <div class="bird-name">戴胜</div>
+       <div class="bird-tip">点击图片播放戴胜叫声</div>
+       <audio class="bird-audio" preload="auto">
+        <source src="戴胜叫声.mp3"type="audio/mpeg"> 
+      </div>
+    <a target="_blank" href="https://img.pconline.com.cn/images/upload/upc/tx/photoblog/1009/18/c2/5238436_5238436_1284792765562.jpg"alt="戴胜">
+      <img src="https://img.pconline.com.cn/images/upload/upc/tx/photoblog/1009/18/c2/5238436_5238436_1284792765562.jpg" alt="戴胜"></a>
+    <div class="desc">戴胜：头顶羽冠，捕食土壤害虫</div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+      <div class="bird-gallery"> 
+       <div class="bird-card">
+        <img src="灰喜鹊.jpg" class="bird-img" onclick="playBirdSound(this)"alt="灰喜鹊">
+       <div class="bird-name">灰喜鹊</div>
+       <div class="bird-tip">点击图片播放灰喜鹊叫声</div>
+       <audio class="bird-audio" preload="auto">
+        <source src="灰喜鹊叫声.mp3"type="audio/mpeg"> 
+      </div>
+    <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.1GjzSnOpCRyDqKAJQHDbhQHaJZ?w=110&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2">
+      <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.1GjzSnOpCRyDqKAJQHDbhQHaJZ?w=110&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="灰喜鹊"> 
+    <div class="desc">灰喜鹊：群居性，专食松毛虫等林业害虫</div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+      <div class="bird-gallery"> 
+       <div class="bird-card">
+        <img src="家燕.jpg" class="bird-img" onclick="playBirdSound(this)"alt="家燕">
+       <div class="bird-name"></div>
+       <div class="bird-tip">点击图片播放家燕叫声</div>
+       <audio class="bird-audio" preload="auto">
+        <source src="家燕叫声.mp3"type="audio/mpeg"> 
+      </div>
+    <a target="_blank" href="https://ts2.tc.mm.bing.net/th/id/OIP-C.j_Fw3LBNk73LJPUkSbfiswHaFj?w=128&h=108&c=7&qlt=90&bgcl=bafd56&r=0&o=6&dpr=1.3&pid=13.1">
+      <img src="https://ts2.tc.mm.bing.net/th/id/OIP-C.j_Fw3LBNk73LJPUkSbfiswHaFj?w=128&h=108&c=7&qlt=90&bgcl=bafd56&r=0&o=6&dpr=1.3&pid=13.1" alt="家燕">
+    </a>
+    <div class="desc">家燕：常见家燕，飞行捕食空中害虫</div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+     <div class="bird-gallery"> 
+       <div class="bird-card">
+        <img src="麻雀.jpg" class="bird-img" onclick="playBirdSound(this)"alt="麻雀">
+       <div class="bird-name">麻雀</div>
+       <div class="bird-tip">点击图片播放麻雀叫声</div>
+       <audio class="bird-audio" preload="auto">
+        <source src="麻雀叫声.mp3"type="audio/mpeg"> 
+      </div>
+    <a target="_blank" href="https://ts3.tc.mm.bing.net/th?id=ORMS.ce72105740971ebd54864cb24d4e7fd2&pid=Wdp&w=268&h=140&qlt=90&c=1&rs=1&dpr=1.25&p=0">
+    <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.1jVgYhf00Ew_4IfvfcknbwHaFZ?w=161&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"> 
+      <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.1jVgYhf00Ew_4IfvfcknbwHaFZ?w=161&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="麻雀">
+    </a> 
+     <a target="_blank" href="https://static.699pic.com/images/diversion/dec9375410b560c455176f56dbe31b56.jpg">
+      <img src="https://static.699pic.com/images/diversion/dec9375410b560c455176f56dbe31b56.jpg" alt="麻雀">
+      <div class="desc">麻雀：喜群栖。掠食谷物也食昆虫及一些树叶。通常与人类有共同的栖息生境</div>
+  </div>
+</div> 
+<div class="responsive">
+  <div class="gallery">
+    <div class="bird-gallery"> 
+       <div class="bird-card">
+       <img src="乌鸫.jpg" class="bird-img" onclick="playBirdSound(this)"alt="乌鸫">
+       <div class="bird-name">乌鸫</div>
+       <div class="bird-tip">点击图片播放乌鸫叫声</div>
+       <audio class="bird-audio" preload="auto">
+       <source src="乌鸫叫声.mp3"type="audio/mpeg"> 
+      </div>
+    <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.7nlbydH5bKpAW8vsB3WKMgHaEn?w=169&h=108&c=7&qlt=90&bgcl=55872e&r=0&o=6&dpr=1.3&pid=13.1">
+      <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.7nlbydH5bKpAW8vsB3WKMgHaEn?w=169&h=108&c=7&qlt=90&bgcl=55872e&r=0&o=6&dpr=1.3&pid=13.1" alt="乌鸫">
+    </a>
+    <div class="desc">乌鸫：是杂食性鸟类，食物包括昆虫、蚯蚓、种子和浆果。</div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+     <!-- <div class="bird-gallery"> 
+       <div class="bird-card">
+       <img src="蜂鸟.jpg" class="bird-img" onclick="playBirdSound(this)"alt="蜂鸟">
+       <div class="bird-name">蜂鸟</div>
+       <div class="bird-tip">点击图片播放蜂鸟叫声</div>
+       <audio class="bird-audio" preload="auto">
+        <source src="蜂鸟叫声.mp3"type="audio/mpeg"> 
+      </div>-->
+    <a target="_blank" href="https://img-s.msn.cn/tenant/amp/entityid/AA1BBjkm.img?w=768&h=558&m=6">
+      <img src="https://img-s.msn.cn/tenant/amp/entityid/AA1BBjkm.img?w=768&h=558&m=6" alt="蜂鸟">
+    </a>
+    <div class="desc">蜂鸟：迷你吸蜜，助力花卉授粉</div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+    <div class="bird-gallery"> 
+       <div class="bird-card">
+        <img src="白鹭.jpg" class="bird-img" onclick="playBirdSound(this)"alt="白鹭">
+       <div class="bird-name">白鹭</div>
+       <div class="bird-tip">点击图片播放白鹭叫声</div>
+       <audio class="bird-audio" preload="auto">
+        <source src="白鹭叫声.mp3"type="audio/mpeg"> 
+      </div>
+    <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.9h5i_d7iMpwmxg5D8XDkzAHaE0?w=210&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2">
+      <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.9h5i_d7iMpwmxg5D8XDkzAHaE0?w=210&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="白鹭">
+    </a>
+    <div class="desc">白鹭：白色水鸟，水质监测指示物种</div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+     <div class="bird-gallery"> 
+       <div class="bird-card">
+        <img src="苍鹭.jpg" class="bird-img" onclick="playBirdSound(this)"alt="苍鹭">
+       <div class="bird-name">苍鹭</div>
+       <div class="bird-tip">点击图片播放苍鹭叫声</div>
+       <audio class="bird-audio" preload="auto">
+        <source src="苍鹭叫声.mp3"type="audio/mpeg"> 
+      </div>
+    <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.s-y14MtgDpqrY6yZNHWS2AHaEc?w=195&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2">
+      <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.s-y14MtgDpqrY6yZNHWS2AHaEc?w=195&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="苍鹭">
+    </a>
+    <div class="desc">苍鹭：大型涉禽，捕食水生害虫</div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+    <!-- <div class="bird-gallery"> 
+       <div class="bird-card">
+        <img src="秃鹫.jpg" class="bird-img" onclick="playBirdSound(this)"alt="秃鹫">
+       <div class="bird-name">秃鹫</div>
+       <div class="bird-tip">点击图片播放秃鹫叫声</div>
+       <audio class="bird-audio" preload="auto">
+        <source src="秃鹫叫声.mp3"type="audio/mpeg"> 
+      </div>-->
+    <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.6vBma2SkPZlf_vTffu6-fQHaE1?w=247&h=200&c=8&rs=1&o=6&dpr=1.3&pid=3.1&rm=2">
+      <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.6vBma2SkPZlf_vTffu6-fQHaE1?w=247&h=200&c=8&rs=1&o=6&dpr=1.3&pid=3.1&rm=2" alt="秃鹫">
+    </a>
+    <div class="desc">秃鹫：食腐清道夫，净化自然环境</div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+    <!-- <div class="bird-gallery"> 
+       <div class="bird-card">
+        <img src="喜鹊.jpg" class="bird-img" onclick="playBirdSound(this)"alt="喜鹊">
+       <div class="bird-name">喜鹊</div>
+       <div class="bird-tip">点击图片播放喜鹊叫声</div>
+       <audio class="bird-audio" preload="auto">
+        <source src="喜鹊叫声.mp3"type="audio/mpeg"> 
+      </div>-->
+      <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.OMtEGVIYMno_4a4eSe4IvAHaFj?w=185&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2">
+      <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.OMtEGVIYMno_4a4eSe4IvAHaFj?w=185&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="喜鹊">
+    </a>
+    <div class="desc">喜鹊：吉祥象征，捕食害虫兼食杂果</div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+    <!-- <div class="bird-gallery"> 
+       <div class="bird-card">
+        <img src="信鸽.jpg" class="bird-img" onclick="playBirdSound(this)"alt="信鸽">
+       <div class="bird-name">信鸽</div>
+       <div class="bird-tip">点击图片播放信鸽叫声</div>
+       <audio class="bird-audio" preload="auto">
+        <source src="信鸽叫声.mp3"type="audio/mpeg"> 
+      </div>-->
+    <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.hZoLlaY0pU74v7-vgdNOWAHaFj?w=128&h=108&c=7&qlt=90&bgcl=b7d218&r=0&o=6&dpr=1.3&pid=13.1">
+      <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.hZoLlaY0pU74v7-vgdNOWAHaFj?w=128&h=108&c=7&qlt=90&bgcl=b7d218&r=0&o=6&dpr=1.3&pid=13.1" alt="信鸽" >
+    </a>
+    <div class="desc">信鸽：和平象征，兼具通讯价值</div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+    <!-- <div class="bird-gallery"> 
+       <div class="bird-card">
+        <img src="画眉鸟.jpg" class="bird-img" onclick="playBirdSound(this)"alt="画眉鸟">
+       <div class="bird-name">画眉鸟</div>
+       <div class="bird-tip">点击图片播放画眉鸟叫声</div>
+       <audio class="bird-audio" preload="auto">
+        <source src="画眉鸟叫声.mp3"type="audio/mpeg"> 
+      </div>-->
+    <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.YegVHsiVWw7bkEOb1AcoSQHaFj?w=165&h=128&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2">
+      <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.YegVHsiVWw7bkEOb1AcoSQHaFj?w=165&h=128&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="画眉鸟" >
+    </a>
+    <div class="desc">画眉鸟：鸣声悦耳，捕食害虫益鸟</div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+    <!-- <div class="bird-gallery"> 
+       <div class="bird-card">
+        <img src="大雁.jpg" class="bird-img" onclick="playBirdSound(this)"alt="大雁">
+       <div class="bird-name">大雁</div>
+       <div class="bird-tip">点击图片播放大雁叫声</div>
+       <audio class="bird-audio" preload="auto">
+        <source src="大雁叫声.mp3"type="audio/mpeg"> 
+      </div>-->
+    <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/ODL.a0b404c43af2a1f1a31aa9fad3a90df8?w=310&h=198&c=7&rs=1&bgcl=fffffe&r=0&o=6&dpr=1.3&pid=AlgoBlockDebug">
+      <img src="https://ts1.tc.mm.bing.net/th/id/ODL.a0b404c43af2a1f1a31aa9fad3a90df8?w=310&h=198&c=7&rs=1&bgcl=fffffe&r=0&o=6&dpr=1.3&pid=AlgoBlockDebug" alt="大雁">
+    </a>
+    <div class="d"></div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery"><!-- <div class="bird-gallery"> 
+    <div class="bird-card">
+     <img src="大山雀.jpg" class="bird-img" onclick="playBirdSound(this)"alt="大山雀">
+    <div class="bird-name">大山雀</div>
+    <div class="bird-tip">点击图片播放大山雀叫声</div>
+    <audio class="bird-audio" preload="auto">
+     <source src="大山雀叫声.mp3"type="audio/mpeg"> 
+   </div>-->
+    <a target="_blank" href="https://ts1.tc.mm.bing.net/th/id/OIP-C.cp7XEbj7KxxHDHliZsceAAAAAA?w=221&h=200&c=8&rs=1&o=6&dpr=1.3&pid=3.1&rm=2">
+      <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.cp7XEbj7KxxHDHliZsceAAAAAA?w=221&h=200&c=8&rs=1&o=6&dpr=1.3&pid=3.1&rm=2" alt="大山雀">
+    </a>
+    <div class="desc">大山雀：主要以松毛虫、刺蛾、金龟甲、瓢甲、蝽象等各种昆虫为食。</div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery1">
+     <div class="bird-gallery"> 
+       <div class="bird-card">
+        <img src="太阳鸟.jpg" class="bird-img" onclick="playBirdSound(this)"alt="太阳鸟">
+       <div class="bird-name">太阳鸟</div>
+       <div class="bird-tip">点击图片播放太阳鸟叫声</div>
+       <audio class="bird-audio" preload="auto">
+        <source src="太阳鸟叫声.mp3"type="audio/mpeg"> 
+      </div>
+     <a target="_blank" href="https://tse3-mm.cn.bing.net/th/id/OIP-C.zr20lGZ2x3SUwBWpH1bhjgAAAA?w=223&h=169&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3">
+      <img src="https://tse3-mm.cn.bing.net/th/id/OIP-C.zr20lGZ2x3SUwBWpH1bhjgAAAA?w=223&h=169&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt=“太阳鸟”>
+    </a>
+    <div class="desc">太阳鸟：色彩艳丽，热带作物授粉益鸟</div> 
+  </div>
+</div> 
+<div class="clearfix"></div>
+<div style="padding: 6px;"></div>
+<script>
+  let currentAudio = null;
+  function playBirdSound(e){
+    const t=e.closest(".bird-card").querySelector(".bird-audio");
+    if(!t)return;
+    currentAudio&&currentAudio!==t&&(currentAudio.pause(),currentAudio.currentTime=0);
+    t.currentTime=0;
+    t.play().catch(()=>{});
+    currentAudio=t;
+    }
+</script>
+     <footer class="footer">
+      <a href="#header">回到顶部</a><br>
+      <a href="mailto:webmaster@example.com">联系我们</a>
+            <meta name="author" content="Runoob"><br>
+            <a href="C:\Users\laoru\OneDrive\文档\关于本网站.docx" _mstmutation="1" _istranslated="1"> 关于本站</a><br>
+            <a href="tel:+8615936842859">拨打电话</a><br>
+            <a href="tel:+8613223729647">拨打电话</a><br>
+            <a href="sms:+8615936842859?body=您好">发送短信</a>
+            <p>&copy; 2025 My Website. All rights reserved.</p>
+            <p>&copy; 2025 xuenihongzhao Blog. All rights reserved.</p>
+            版权所有者：劳瑞<br>
+      <p>版权所有 &copy; 2024 劳瑞</p>
+     </footer>  
+    </section> 
+  </body>
+  </html>
